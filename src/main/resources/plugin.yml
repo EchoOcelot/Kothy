@@ -1,0 +1,77 @@
+name: Kothy
+version: '1.0-SNAPSHOT'
+main: io.github.echoocelot.kothy.Kothy
+api-version: '1.21'
+folia-supported: true
+commands:
+  kothy:
+    description: "Interact with the Kothy Plugin"
+    aliases: [k]
+    permission: "kothy.command.kothy"
+
+    permissions:
+      kothy.wand:
+        description: "Grants permission to use the Kothy selection wand"
+        default: true
+
+      kothy.command.kothy:
+        description: "Grants permission to use the Kothy command"
+        default: true
+
+        kothy.command.kothy.*:
+          default: false
+          children:
+            kothy.command.kothy.blacklist.*: true
+            kothy.command.kothy.forceend: true
+            kothy.command.kothy.results: true
+            kothy.command.kothy.schedule.*: true
+            kothy.command.kothy.select: true
+            kothy.command.kothy.start: true
+
+        kothy.command.kothy.blacklist.*:
+          default: false
+          children:
+            kothy.command.kothy.blacklist.add: true
+            kothy.command.kothy.blacklist.remove: true
+            kothy.command.kothy.blacklist.contains: true
+            kothy.command.kothy.blacklist.list: true
+
+        kothy.command.kothy.blacklist.add:
+          default: false
+
+        kothy.command.kothy.blacklist.remove:
+          default: false
+
+        kothy.command.kothy.blacklist.contains:
+          default: false
+
+        kothy.command.kothy.blacklist.list:
+          default: false
+
+        kothy.command.kothy.forceend:
+          default: false
+
+        kothy.command.kothy.results:
+          default: true
+
+        kothy.command.kothy.schedule.*:
+          default: false
+          children:
+            kothy.command.kothy.schedule.new: true
+            kothy.command.kothy.schedule.remove: true
+            kothy.command.kothy.schedule.list: true
+
+        kothy.command.kothy.schedule.add:
+          default: false
+
+        kothy.command.kothy.schedule.remove:
+          default: false
+
+        kothy.command.kothy.schedule.list:
+          default: true
+
+        kothy.command.kothy.select:
+          default: false
+
+        kothy.command.kothy.start:
+          default: false
